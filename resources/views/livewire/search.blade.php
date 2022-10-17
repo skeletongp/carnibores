@@ -6,7 +6,7 @@
                 <span class="fas fa-search text-gray-400 hover:text-primary cursor-pointer"></span>
             </button>
             <input type="search" wire:model.debounce.500ms="search" list="searchList"
-                class=" px-2 md:px-4 text-sm md:text-base w-[10.5rem] md:w-96  py-2  focus:outline-none placeholder:font-bold placeholder:text-gray-400 bg-transparent text-black  focus:ring-0"
+                class=" px-2 md:px-4 text-xs md:text-base w-[8.5rem] md:w-96  py-2  focus:outline-none placeholder:font-bold placeholder:text-gray-400 bg-transparent text-black  focus:ring-0"
                 placeholder="Buscar producto">
             @if ($search && strlen($search) > 2)
                 <datalist id="searchList">

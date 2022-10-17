@@ -3,8 +3,8 @@
         @include('includes.secondbar')
     @endslot
     <livewire:home-view />
-    <div x-data="map('hola')">
+   {{--  <div x-data="map('hola')">
         <div x-ref="map" class="map w-[400px] mx-auto border border-slate-300 rounded-md my-4 shadow-lg">
         </div>
-    </div>
+    </div> --}}
 </x-app>
