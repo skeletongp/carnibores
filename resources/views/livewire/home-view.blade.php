@@ -3,7 +3,7 @@
    
     <div class="">
         <!-- Jumbotron -->
-        <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
+        <div class="p-12 max-w-[64rem] mx-auto text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
             style="
     background-image: url({{env('CARNE_FONDO')}});
     height: 400px;
