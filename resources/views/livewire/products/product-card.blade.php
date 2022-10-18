@@ -1,4 +1,4 @@
-<div class="relative w-5/6 md:max-w-[14rem] mx-auto" x-init x-data="{ showPrice: false }">
+<div class="relative md:max-w-[14rem] mx-auto" x-init x-data="{ showPrice: false }">
     <div class="relative w-full md:w-[14rem] h-[15rem] mx-auto bg-white rounded-lg overflow-hidden shadow-lg p-2  card"
         @click.away="showPrice= false">
         <img class="h-28 w-28 mx-auto rounded-full transition-all ease-linear duration-300 hover:scale-110 transform"
