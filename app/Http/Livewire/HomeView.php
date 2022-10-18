@@ -36,9 +36,10 @@ class HomeView extends Component implements InterfaceComponent
         try {
             $params = array_merge([
                 'load' => 'category|image|stock.unit',
-                'limit' => 8,
+                'limit' => 4,
                 'random' => 1,
                 'search' => $this->search,
+                'fromPrice'=>32,
                 'hasCategory' => 1,
             ], $this->filters);
             $response = Http::withToken(env('API_AUTH_TOKEN'))

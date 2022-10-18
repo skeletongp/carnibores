@@ -17,29 +17,34 @@
     @livewireStyles
 </head>
 
-<body x-init x-cloak class=" bg-center bg-cover bg-no-repeat bg-fixed " style="background-image: url({{env('CARNE_FONDO')}})">
+<body x-init x-cloak class=" bg-center bg-cover bg-no-repeat bg-fixed "
+    style="background-image: url({{ env('CARNE_FONDO') }})">
     <div class="hidden" id="loading">
         <x-loading></x-loading>
     </div>
-    <div class="sticky top-0 z-30 bg-white">
+    <div class="fixed w-full top-0 z-30 bg-white">
         @include('includes.navbar')
+        @include('includes.footer')
         @isset($secondbar)
             @include('includes.secondbar')
         @endisset
 
     </div>
-    <main class="p-4 bg-white bg-opacity-90 ">
+    <main class="p-4 py-6 xl:py-8 space-y-4 min-h-full pt-32 bg-white bg-opacity-90 ">
         <livewire:carts.cart-preview />
-        {{ $slot }}
+        <div class="flex">
+            <livewire:sidebar />
+            <div class="lg:ml-52 xl:ml-72 w-full">
+                {{ $slot }}
+            </div>
+        </div>
     </main>
     @livewireScripts
     @stack('js')
-    <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
-    </script>
+    <script defer src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         // localStorage.clear();
-      
     </script>
 </body>
 

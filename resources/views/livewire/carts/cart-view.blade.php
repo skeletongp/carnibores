@@ -1,4 +1,4 @@
-    <div class="w-full absolute z-10 left-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
+    <div class="w-full  absolute z-10 left-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
         id="checkout">
 
         <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">

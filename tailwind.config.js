@@ -3,7 +3,7 @@ module.exports = {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-        
+
         "./resources/**/*.vue",
     ],
     theme: {
@@ -39,10 +39,28 @@ module.exports = {
                 36: "9rem",
                 40: "10rem",
             },
-           
-        }
+            keyframes: {
+                scrollText: {
+                    '0%': {
+                        opacity:0,
+                        right:'0',
+                    },
+                    '15%':{
+                        opacity:'1',
+                    },
+                    
+                    '100%': {
+                        opacity:0,
+                        right: '110%',
+                        opacity:1,
+                    }
+                },
+            },
+            animation: {
+                'scroll-text': "scrollText 13s infinite linear",
+            }
+        },
     },
-    plugins: [
-    ],
-    darkMode:'class'
+    plugins: [],
+    darkMode: "class",
 };

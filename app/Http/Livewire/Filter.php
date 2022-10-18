@@ -10,10 +10,19 @@ class Filter extends Component
     public $categories = [];
     public $selectedCategories = [];
     public $filters = [];
-    public $fromPrice=0; 
-    public $toPrice=500;
+    public $fromPrice = 0;
+    public $toPrice = 500;
+    public $order = 'order,id';
+    public $direction= 'asc';
+
+   
+
     public function mount()
     {
+        $this->filters['sort']=[
+            'order' => 'id',
+            'direction' => $this->direction,
+        ];
         $this->getCategories();
     }
 
@@ -43,19 +52,28 @@ class Filter extends Component
         } else {
             array_push($this->selectedCategories, $value);
         }
-            $value = implode(',', $this->selectedCategories);
-            $this->filters["category"] = $value;
-            if($value == ''){
-                unset($this->filters["category"]);
-            }
+        $value = implode(',', $this->selectedCategories);
+        $this->filters["category"] = $value;
+        if ($value == '') {
+            unset($this->filters["category"]);
+        }
         $this->emit('filter', $this->filters);
     }
-    
-    public function filter(){
-        $this->filters["fromPrice"] =$this->fromPrice;
-        $this->filters["toPrice"] =$this->toPrice;
-        $this->emit('filter', $this->filters);
+    public function updatedDirection(){
+        $this->filter();
     }
+    public function filter()
+    {
+        $this->filters["fromPrice"] = $this->fromPrice;
+        $this->filters["toPrice"] = $this->toPrice;
 
-   
+        $orders = explode(',', $this->order);
+        if (count($orders) == 2) {
+            $this->filters['sort']=[
+                $orders[0],
+            ];
+            $this->filters[$this->filters['sort'][0]] = $orders[1].','.$this->direction;
+        }
+        $this->emit('filter', $this->filters);
+    }
 }

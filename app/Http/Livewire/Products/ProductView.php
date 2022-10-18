@@ -44,7 +44,6 @@ class ProductView extends Component implements InterfaceComponent
             'paginate' => 'true',
             'perpage' => '12',
             'page' => $this->page,
-            'order' => 'name',
             'asc' => 'true',
             'search' => $this->search,
         ], $this->filters);
@@ -55,6 +54,7 @@ class ProductView extends Component implements InterfaceComponent
                 $data = $response->json()['content'];
                 $this->products = array_merge($this->products, $data['data']);
                 $this->lastPage = $data['meta']['last_page'];
+                $this->emit('productsLoaded');
             } else {
                 dd($response->json());
             }

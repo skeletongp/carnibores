@@ -1,4 +1,4 @@
-<div x-init x-data="{ open: false }" id="cartFloat">
+<div x-init x-data="{ open: false }" id="cartFloat" class=" w-max">
     <div @click.away="open=false">
         <button @click="open = !open" class="relative">
             <div
@@ -10,7 +10,7 @@
                         {{ $cant . ' items' }}
                     </span>
                 </div>
-                <div class="bg-white px-3 h-8 w-full py-1 flex items-center justify-center rounded-lg overflow-hidden">
+                <div class="bg-white px-3 h-8  w-full py-1 flex items-center justify-center rounded-lg overflow-hidden">
                     <h1 class="text-primary font-bold text-xs text-center">
                         ${{ formatNumber($total) }}
                     </h1>

@@ -21,7 +21,10 @@ $(document).ready(function () {
             format: '(###) ###-####'
         })
     })
+    buttonCartEvent();
     
+});
+function buttonCartEvent(){
     //if add to cart btn clicked
     $('.button_cart').on('click', function() {
         let cart = $('.cart-nav');
@@ -53,7 +56,8 @@ $(document).ready(function () {
             });
         }
     });
-});
+
+}
 window.onload = function () {
     let finalCart = JSON.parse(localStorage.getItem("cart"));
     Livewire.emit("updatedCart", finalCart);
@@ -111,6 +115,9 @@ const Toast = Swal.mixin({
         toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
 });
+Livewire.on('productsLoaded', function(){
+    buttonCartEvent();
+})
 
 
 

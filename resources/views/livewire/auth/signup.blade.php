@@ -1,6 +1,6 @@
 <div>
     <button onclick="openSignupForm()"
-        class="py-4 px-2 font-semibold hover:text-primary transition duration-300 {{ request()->routeIs('about') ? ' text-primary border-b-4 border-primary font-semibold' : 'text-blue-500' }}">Regístrate</button>
+        class="py-4 px-2 font-semibold hover:text-primary transition duration-300 {{ request()->routeIs('about') ? ' text-primary border-b-4 border-primary font-semibold' : 'text-blue-600 lg:text-slate-300' }}">Regístrate</button>
 
 
     <script>
