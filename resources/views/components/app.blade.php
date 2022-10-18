@@ -34,6 +34,8 @@
     </main>
     @livewireScripts
     @stack('js')
+    <script defer src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
+    </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         // localStorage.clear();

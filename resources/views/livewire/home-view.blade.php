@@ -1,4 +1,6 @@
 <div>
+    
+   
     <div class="">
         <!-- Jumbotron -->
         <div class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
