@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/auth/logout', function () {
+    Auth::logout();
+    
+    return redirect()->route('home');
+    
+});
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::controller(ProductController::class)->group(function () {

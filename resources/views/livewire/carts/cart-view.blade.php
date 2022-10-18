@@ -49,7 +49,10 @@
                                     <span>Confirmar</span>
                                 </button>
                             @else
-                                <livewire:auth.login />
+                            <div 
+                                    class="text-base leading-none text-center   bg-gray-300 border-white border focus:outline-none focus:ring-0  hover:text-gray-200 hover:bg-red-600 text-red-500  w-2/3 font-bold uppercase rounded-md">
+                                    <livewire:auth.login />
+                                </div>
                             @endauth
 
                             <button onclick="emptyCart()"
@@ -83,31 +86,6 @@
                 Livewire.emit('alert', 'Carrito Vacío', null, 'center');
             }
 
-            function tryConfirm(dataUrl) {
-                Swal.fire({
-                    title: 'Confirmar',
-                    html: `<input type="text" id="name" class="swal2-input !w-48" placeholder="Nombre">
-                            <input type="number" id="phone" class="swal2-input !w-48" placeholder="No. Celular">`,
-                    confirmButtonText: 'Confirmar',
-                    focusConfirm: false,
-                    preConfirm: () => {
-                        const name = Swal.getPopup().querySelector('#name').value
-                        const phone = Swal.getPopup().querySelector('#phone').value
-                        if (!name || !phone) {
-                            Swal.showValidationMessage(`Por favor, llene los campos`)
-                        }
-                        return {
-                            name: name,
-                            phone: phone
-                        }
-                    }
-                }).then((result) => {
-                    let cart = JSON.parse(localStorage.getItem('cart'));
-                    let imageUrl = dataUrl;
-                    Livewire.emit('confirmShopping', result.value, cart, imageUrl);
-                })
-
-            }
 
             async function orderImage() {
                 $('#loading').toggleClass('hidden');
@@ -118,7 +96,9 @@
                             $('#loading').toggleClass('hidden');
                             return dataUrl;
                         }).then(function(dataUrl) {
-                            tryConfirm(dataUrl);
+                            let cart = JSON.parse(localStorage.getItem('cart'));
+                            let imageUrl = dataUrl;
+                            Livewire.emit('confirmShopping', cart, imageUrl);
 
                         });
                 }, 1000);

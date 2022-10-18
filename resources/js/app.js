@@ -1,5 +1,7 @@
 import "./bootstrap";
 import './map';
+import './formatNumber';
+import './swipers';
 
 
 $(document).ready(function () {
@@ -13,6 +15,43 @@ $(document).ready(function () {
         var small = $("small[data-target=" + id + "]");
         //Set the label text to the value of the input
         small.text(value);
+    });
+    $('input[type=tel]').each(function() {
+        $(this).formatPhoneNumber({
+            format: '(###) ###-####'
+        })
+    })
+    
+    //if add to cart btn clicked
+    $('.button_cart').on('click', function() {
+        let cart = $('.cart-nav');
+        // find the img of that card which button is clicked by user
+        let imgtodrag = $(this).parent('.card').find("img").eq(0);
+        if (imgtodrag) {
+            // duplicate the img
+            var imgclone = imgtodrag.clone().offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            }).css({
+                'opacity': '0.8',
+                'position': 'absolute',
+                'height': '150px',
+                'width': '150px',
+                'z-index': '100'
+            }).appendTo($('body')).animate({
+                'top': cart.offset().top + 20,
+                'left': cart.offset().left + 30,
+                'width': 75,
+                'height': 75
+            }, 1000, 'easeInOutExpo');
+          
+            imgclone.animate({
+                'width': 0,
+                'height': 0
+            }, function() {
+                $(this).detach()
+            });
+        }
     });
 });
 window.onload = function () {
@@ -36,7 +75,7 @@ window.onload = function () {
             message = "Prueba",
             type = "success",
             position = "bottom-end",
-            duration = 3000
+            duration = 3000,
         ) => {
             //Check if type and position are valids
             if (!icons.includes(type)) {
@@ -63,14 +102,15 @@ window.onload = function () {
 
 const Toast = Swal.mixin({
     toast: true,
-
     showConfirmButton: false,
     showCloseButton: true,
+
     timerProgressBar: true,
     didOpen: (toast) => {
         toast.addEventListener("mouseenter", Swal.stopTimer);
         toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
 });
+
 
 

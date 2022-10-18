@@ -9,6 +9,7 @@ window._ = _;
 
 import axios from 'axios';
 import jQuery from 'jquery';
+
 import Swal from 'sweetalert2';
 import * as htmlToImage from "html-to-image";
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";

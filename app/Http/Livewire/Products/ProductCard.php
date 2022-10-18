@@ -22,7 +22,6 @@ class ProductCard extends Component
     {
         if ($this->cant < 999) {
             $this->cant++;
-            $this->addProductToCart();
         }
     }
 
@@ -31,7 +30,7 @@ class ProductCard extends Component
     {
         if ($this->cant > 1) {
             $this->cant--;
-            $this->addProductToCart();
+            
         }
     }
 

@@ -37,7 +37,7 @@ class CartView extends Component
         }
         $this->total=formatNumber($this->total);
     }
-    public function confirmShopping($data, $products, $imageData)
+    public function confirmShopping($products, $imageData)
     {
         $cloudinary = new Cloudinary();
 
@@ -56,9 +56,10 @@ class CartView extends Component
 
         //Save data to database
         
-
-        $title='Preorden de '.$data['name'].'. '.$data['phone'].PHP_EOL;
-        $phone='+1'.preg_replace('/[^0-9]/', '', $data['phone']);
+        $name=auth()->user()->name;
+        $phone=auth()->user()->phone;
+        $title='Preorden de '.$name.'. '.$phone.PHP_EOL;
+        $phone='+1'.preg_replace('/[^0-9]/', '', $phone);
         $footer="Contactar a: https://wa.me/{$phone}?text= ";
         $productos="";
         $products=json_decode(json_encode($products))?:[];

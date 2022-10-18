@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class Login extends Component
@@ -17,7 +19,13 @@ class Login extends Component
 
     public function login($data)
     {
-       
-        dd($data);
+        Validator::make($data,[
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        if (Auth::attempt($data)) {
+            return redirect()->route('home');
+        }
     }
 }
