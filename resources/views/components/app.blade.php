@@ -18,7 +18,7 @@
 </head>
 
 <body x-init x-cloak class=" bg-center bg-cover bg-no-repeat bg-fixed "
-    style="background-image: url({{ env('CARNE_FONDO') }})">
+>
     <div class="hidden" id="loading">
         <x-loading></x-loading>
     </div>

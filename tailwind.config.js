@@ -57,7 +57,7 @@ module.exports = {
                 },
             },
             animation: {
-                'scroll-text': "scrollText 13s infinite linear",
+                'scroll-text': "scrollText 30s infinite ease-in-out",
             }
         },
     },

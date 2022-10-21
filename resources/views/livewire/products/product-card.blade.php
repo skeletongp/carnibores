@@ -1,5 +1,5 @@
 <div class="relative w-full  md:w-[14rem] xl:w-[22rem] mx-auto" x-init x-data="{ showPrice: false }">
-    <div class="relative w-full md:[14rem] xl:w-[22rem] h-[15rem] xl:h-[18rem] mx-auto bg-white rounded-lg overflow-hidden shadow-lg p-2  card"
+    <div class="relative w-full md:[14rem] xl:w-[22rem] h-[15rem] xl:h-[18rem] mx-auto bg-white rounded-lg overflow-hidden border-[0.35px] border-primary p-2  card"
         @click.away="showPrice= false">
 
         {{-- Discount label --}}
